@@ -1,0 +1,8 @@
+## Ignore VS Code temporary files, build results, and
+## file generated for C# projects.
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
