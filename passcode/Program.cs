@@ -6,17 +6,19 @@ namespace passcode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the passcode: ");
-            var passcode = Console.ReadLine();
+            var passcode = "";
 
-            if(passcode == "secret")
+            while(passcode != "secret")
             {
-                Console.WriteLine("Welcome!");
+                Console.WriteLine("Enter the passcode: ");
+                passcode = Console.ReadLine();
+
+                if(passcode != "secret")
+                {
+                    Console.WriteLine("The entered passcode is incorrect.");
+                }
             }
-            else
-            {
-                Console.WriteLine("The entered passcode is incorrect.");
-            }
+            Console.WriteLine("Welcome!");
         }
     }
 }
