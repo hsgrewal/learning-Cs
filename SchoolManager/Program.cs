@@ -7,18 +7,30 @@ namespace SchoolManager
     {
         static void Main(string[] args)
         {
-            var studentNames = new List<string>();
-            var studentGrades = new List<int>();
+            var students = new List<Student>();
 
             var adding = true;
 
             while (adding)
             {
+                var newStudent = new Student();
+
                 Console.Write("Student Name: ");
-                studentNames.Add(Console.ReadLine());
+                newStudent.Name = Console.ReadLine();
 
                 Console.Write("Student Grade: ");
-                studentGrades.Add(int.Parse(Console.ReadLine()));
+                newStudent.Grade = int.Parse(Console.ReadLine());
+
+                Console.Write("Student Birthday: ");
+                newStudent.Birthday = Console.ReadLine();
+
+                Console.Write("Student Address: ");
+                newStudent.Address = Console.ReadLine();
+
+                Console.Write("Student Phone Number ");
+                newStudent.Phone = int.Parse(Console.ReadLine());
+
+                students.Add(newStudent);
 
                 Console.Write("Add another? (y/n) ");
 
@@ -28,11 +40,19 @@ namespace SchoolManager
                 }
             }
 
-            for (int i = 0; i < studentNames.Count; i++)
+            foreach (var student in students)
             {
-                Console.WriteLine("Name: {0}, Grade: {1}", studentNames[i], studentGrades[i]);
+                Console.WriteLine("Name: {0}, Grade: {1}", student.Name, student.Grade);
             }
-
         }
+    }
+
+    class Student
+    {
+        public string Name;
+        public int Grade;
+        public string Birthday;
+        public string Address;
+        public int Phone;
     }
 }
