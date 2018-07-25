@@ -28,7 +28,7 @@ namespace SchoolManager
                 newStudent.Address = Console.ReadLine();
 
                 Console.Write("Student Phone Number ");
-                newStudent.SetPhone(int.Parse(Console.ReadLine()));
+                newStudent.Phone = int.Parse(Console.ReadLine());
 
                 students.Add(newStudent);
 
@@ -53,11 +53,15 @@ namespace SchoolManager
         public int Grade;
         public string Birthday;
         public string Address;
-        private int Phone;
+        private int phone;
 
+public int Phone
+{
+    set { phone = value; }
+}
         public void SetPhone(int number)
         {
-            Phone = number;
+            phone = number;
         }
     }
 }
