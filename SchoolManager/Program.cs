@@ -6,12 +6,26 @@ namespace SchoolManager
     {
         static void Main(string[] args)
         {
-            var studentGrades = new int[10] { 50, 20, 30, 65, 80, 95, 97, 87, 43, 67 };
+            Console.WriteLine("How many students are in your class?");
+            var studentCount = int.Parse(Console.ReadLine());
 
-            foreach (var studentGrade in studentGrades)
+            var studentNames = new string[studentCount];
+            var studentGrades = new int[studentCount];
+
+            for (int i = 0; i < studentCount; i++)
             {
-                Console.WriteLine(studentGrade);
+                Console.Write("Student Name: ");
+                studentNames[i] = Console.ReadLine();
+
+                Console.Write("Student Grade: ");
+                studentGrades[i] = int.Parse(Console.ReadLine());
             }
+
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.WriteLine("Name: {0}, Grade: {1}", studentNames[i], studentGrades[i]);
+            }
+
         }
     }
 }
