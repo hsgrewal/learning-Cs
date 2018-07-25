@@ -18,14 +18,10 @@ namespace SchoolManager
                     var newStudent = new Student();
 
                     newStudent.Name = Util.Console.Ask("Student Name: ");
-
-                    newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
-
+                    newStudent.Grade = Util.Console.AskInt("Student Grade: ");
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
-
                     newStudent.Address = Util.Console.Ask("Student Address: ");
-
-                    newStudent.Phone = newStudent.Grade = int.Parse(Util.Console.Ask("Student Phone Number: "));
+                    newStudent.Phone = newStudent.Grade = Util.Console.AskInt("Student Phone Number: ");
 
                     students.Add(newStudent);
                     Student.Count++;
@@ -38,13 +34,13 @@ namespace SchoolManager
                         adding = false;
                     }
                 }
-                catch(FormatException)
+                catch (FormatException msg)
                 {
-                    Console.WriteLine("ERROR! Please enter a number.");
+                    Console.WriteLine(msg.Message);
                 }
-                catch (System.Exception)
+                catch (Exception)
                 {
-                        Console.WriteLine("Error adding student, please try again.");
+                    Console.WriteLine("Error adding student, please try again.");
                 }
             }
 
