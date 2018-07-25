@@ -31,6 +31,8 @@ namespace SchoolManager
                 newStudent.Phone = int.Parse(Console.ReadLine());
 
                 students.Add(newStudent);
+                Student.Count++;
+                Console.WriteLine("Student Count: {0}", Student.Count);
 
                 Console.Write("Add another? (y/n) ");
 
@@ -49,16 +51,17 @@ namespace SchoolManager
 
     class Student
     {
+        static public int Count = 0;
         public string Name;
         public int Grade;
         public string Birthday;
         public string Address;
         private int phone;
 
-public int Phone
-{
-    set { phone = value; }
-}
+        public int Phone
+        {
+            set { phone = value; }
+        }
         public void SetPhone(int number)
         {
             phone = number;
