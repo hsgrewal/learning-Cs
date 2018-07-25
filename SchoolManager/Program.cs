@@ -13,30 +13,38 @@ namespace SchoolManager
 
             while (adding)
             {
-                var newStudent = new Student();
-
-                newStudent.Name = Util.Console.Ask("Student Name: ");
-
-                var result = int.TryParse(Util.Console.Ask("Student Grade: "), out newStudent.Grade);
-
-                if (!result)
-                    Console.WriteLine("ERROR! Please enter a number.");
-
-                newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
-
-                newStudent.Address = Util.Console.Ask("Student Address: ");
-
-                newStudent.Phone = newStudent.Grade = int.Parse(Util.Console.Ask("Student Phone Number: "));
-
-                students.Add(newStudent);
-                Student.Count++;
-                Console.WriteLine("Student Count: {0}", Student.Count);
-
-                Console.Write("Add another? (y/n) ");
-
-                if (Console.ReadLine() != "y")
+                try
                 {
-                    adding = false;
+                    var newStudent = new Student();
+
+                    newStudent.Name = Util.Console.Ask("Student Name: ");
+
+                    newStudent.Grade = int.Parse(Util.Console.Ask("Student Grade: "));
+
+                    newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
+
+                    newStudent.Address = Util.Console.Ask("Student Address: ");
+
+                    newStudent.Phone = newStudent.Grade = int.Parse(Util.Console.Ask("Student Phone Number: "));
+
+                    students.Add(newStudent);
+                    Student.Count++;
+                    Console.WriteLine("Student Count: {0}", Student.Count);
+
+                    Console.Write("Add another? (y/n) ");
+
+                    if (Console.ReadLine() != "y")
+                    {
+                        adding = false;
+                    }
+                }
+                catch(FormatException)
+                {
+                    Console.WriteLine("ERROR! Please enter a number.");
+                }
+                catch (System.Exception)
+                {
+                        Console.WriteLine("Error adding student, please try again.");
                 }
             }
 
