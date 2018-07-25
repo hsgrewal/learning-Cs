@@ -11,23 +11,23 @@ namespace survey
             Console.WriteLine("\nYou will be asked a few questions about yourself");
             Console.WriteLine("and your answers will be shown for verification.");
 
+            var data = new Data();
+
             // Ask first question
             Console.WriteLine("\nWhat is your name?");
 
             // Store answer
-            var name = TryAnswer();
+            data.Name = TryAnswer();
 
             // Continue survey
             Console.WriteLine("\nHow old are you?");
-            var age = TryAnswer();
+            data.Age = int.Parse(TryAnswer());
 
             Console.WriteLine("\nWhat month were you born in?");
-            string month = TryAnswer();
+            data.Month = TryAnswer();
 
             // Verify answers
-            Console.WriteLine("\nYour name is: {0}", name);
-            Console.WriteLine("You are {0} years old.", age);
-            Console.WriteLine("You were born in {0}.", month);
+            data.Display();
 
             Console.WriteLine("\nIs that correct?");
 
@@ -54,6 +54,21 @@ namespace survey
                 return Console.ReadLine();
             }
             return answer;
+        }
+    }
+
+    class Data
+    {
+        public string Name;
+        public int Age;
+        public string Month;
+
+        public void Display()
+        {
+            Console.WriteLine("\nYour name is: {0}", Name);
+            Console.WriteLine("You are {0} years old.", Age);
+            Console.WriteLine("You were born in {0}.", Month);
+
         }
     }
 }
