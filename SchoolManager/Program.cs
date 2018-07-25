@@ -3,12 +3,18 @@ using System.Collections.Generic;
 
 namespace SchoolManager
 {
+    enum School
+    {
+        Stanford,
+        MIT,
+        Berkley
+    }
     class Program
     {
+        static List<Student> students = new List<Student>();
+
         static void Main(string[] args)
         {
-            var students = new List<Student>();
-
             var adding = true;
 
             while (adding)
@@ -19,6 +25,7 @@ namespace SchoolManager
 
                     newStudent.Name = Util.Console.Ask("Student Name: ");
                     newStudent.Grade = Util.Console.AskInt("Student Grade: ");
+                    newStudent.School = (School) Util.Console.AskInt("School Name: \n 0 - Stanford \n 1 - MIT \n 2 - Berkley \n");
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
                     newStudent.Address = Util.Console.Ask("Student Address: ");
                     newStudent.Phone = newStudent.Grade = Util.Console.AskInt("Student Phone Number: ");
@@ -48,12 +55,37 @@ namespace SchoolManager
             {
                 Console.WriteLine("Name: {0}, Grade: {1}", student.Name, student.Grade);
             }
+
+            Exports();
         }
 
         static void Import()
         {
             var importedStudent = new Student("Jenny", 86, "birthday", "address", 12303);
             Console.WriteLine(importedStudent.Name);
+        }
+
+        static void Exports()
+        {
+            foreach (var student in students)
+            {
+                switch (student.School)
+                {
+                    case School.Stanford:
+                        Console.WriteLine("Exporting to Stanford");
+                        break;
+                    case School.MIT:
+                        Console.WriteLine("Exporting to MIT");
+                        break;
+                    case School.Berkley:
+                        Console.WriteLine("Exporting to Berkley");
+                        break;
+                    default:
+                        Console.WriteLine("Exporting to HELL! >:)");
+                        break;
+
+                }
+            }
         }
     }
 
@@ -74,6 +106,7 @@ namespace SchoolManager
         static public int Count = 0;
         public int Grade;
         public string Birthday;
+        public School School;
 
         public Student()
         {
