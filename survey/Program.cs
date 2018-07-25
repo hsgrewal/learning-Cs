@@ -10,37 +10,19 @@ namespace survey
             Console.WriteLine("Hello! Thank you for taking our short survey.");
             Console.WriteLine("\nYou will be asked a few questions about yourself");
             Console.WriteLine("and your answers will be shown for verification.");
-            
+
             // Ask first question
             Console.WriteLine("\nWhat is your name?");
-            
+
             // Store answer
-            string name = Console.ReadLine();
-            
-            if (name == "")
-            {
-                WriteTryAgain();
-                name = Console.ReadLine();
-            }
+            var name = TryAnswer();
 
             // Continue survey
             Console.WriteLine("\nHow old are you?");
-            var age = Console.ReadLine();
-
-            if (age == "")
-            {
-                WriteTryAgain();
-                age = Console.ReadLine();
-            }
+            var age = TryAnswer();
 
             Console.WriteLine("\nWhat month were you born in?");
-            string month = Console.ReadLine();
-
-            if (month == "")
-            {
-                WriteTryAgain();
-                month = Console.ReadLine();
-            }
+            string month = TryAnswer();
 
             // Verify answers
             Console.WriteLine("\nYour name is: {0}", name);
@@ -51,7 +33,7 @@ namespace survey
 
             string ans = Console.ReadLine();
 
-            if(ans == "yes" | ans == "Yes")
+            if (ans == "yes" | ans == "Yes")
             {
                 Console.WriteLine("\nGreat! Thank you for participating.");
             }
@@ -61,10 +43,17 @@ namespace survey
                 Console.WriteLine("Please try again later!");
             }
         }
-        
-        static void WriteTryAgain()
+
+        static string TryAnswer()
         {
-            Console.WriteLine("You didn't write anything, please try again.");
+            var answer = Console.ReadLine();
+
+            if (answer == "")
+            {
+                Console.WriteLine("You didn't write anything, please try again.");
+                return Console.ReadLine();
+            }
+            return answer;
         }
     }
 }
