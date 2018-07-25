@@ -10,15 +10,15 @@ namespace passcode
 
             while(passcode != "secret")
             {
-                Console.WriteLine("Enter the passcode: ");
+                Console.Write("Enter the passcode: ");
                 passcode = Console.ReadLine();
 
                 if(passcode != "secret")
                 {
-                    Console.WriteLine("The entered passcode is incorrect.");
+                    Console.WriteLine("\nNot Authenticated\n");
                 }
             }
-            Console.WriteLine("Welcome!");
+            Console.WriteLine("\nAuthenticated\n");
         }
     }
 }
