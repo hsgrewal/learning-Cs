@@ -1,4 +1,4 @@
-# Short Survey
+# Survey
 A simple C# program that invites the user to take a survey answering
 the following questions:
 1. What is your name?
