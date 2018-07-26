@@ -15,6 +15,9 @@ namespace SchoolManager
 
         static void Main(string[] args)
         {
+            PayRoll payroll = new PayRoll();
+            payroll.PayAll();
+
             var adding = true;
 
             while (adding)
@@ -25,7 +28,7 @@ namespace SchoolManager
 
                     newStudent.Name = Util.Console.Ask("Student Name: ");
                     newStudent.Grade = Util.Console.AskInt("Student Grade: ");
-                    newStudent.School = (School) Util.Console.AskInt("School Name: \n 0 - Stanford \n 1 - MIT \n 2 - Berkley \n");
+                    newStudent.School = (School)Util.Console.AskInt("School Name: \n 0 - Stanford \n 1 - MIT \n 2 - Berkley \n");
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
                     newStudent.Address = Util.Console.Ask("Student Address: ");
                     newStudent.Phone = newStudent.Grade = Util.Console.AskInt("Student Phone Number: ");
@@ -121,10 +124,5 @@ namespace SchoolManager
             Address = address;
             Phone = phone;
         }
-    }
-
-    class Teacher : Member
-    {
-        public string Subject;
     }
 }
