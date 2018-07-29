@@ -4,12 +4,17 @@ namespace survey
 {
     class Program
     {
+        static public event Action Posted;
+
         static void Main(string[] args)
         {
             // Print message greeting user and letting them know about surey.
             Console.WriteLine("Hello! Thank you for taking our short survey.");
             Console.WriteLine("\nYou will be asked a few questions about yourself");
             Console.WriteLine("and your answers will be shown for verification.");
+
+            var stats = new Stats();
+            stats.Start();
 
             var data = new Data();
 
@@ -25,6 +30,11 @@ namespace survey
 
             Console.WriteLine("\nWhat month were you born in?");
             data.Month = TryAnswer();
+            
+            if (Posted != null)
+            {
+                Posted();
+            }
 
             // Verify answers
             data.Display();
