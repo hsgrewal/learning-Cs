@@ -31,7 +31,7 @@ namespace SchoolManager
                     newStudent.School = (School)Util.Console.AskInt("School Name: \n 0 - Stanford \n 1 - MIT \n 2 - Berkley \n");
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
                     newStudent.Address = Util.Console.Ask("Student Address: ");
-                    newStudent.Phone = newStudent.Grade = Util.Console.AskInt("Student Phone Number: ");
+                    newStudent.Phone = Util.Console.AskInt("Student Phone Number: ");
 
                     students.Add(newStudent);
                     Student.Count++;
@@ -53,6 +53,8 @@ namespace SchoolManager
                     Console.WriteLine("Error adding student, please try again.");
                 }
             }
+
+            ShowGrade("");
 
             foreach (var student in students)
             {
@@ -89,6 +91,20 @@ namespace SchoolManager
 
                 }
             }
+        }
+
+        static void ShowGrade(string name)
+        {
+            var found = students.Find(predicate);
+            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
+        }
+
+        static bool predicate(Student student)
+        {
+            if (student.Name == "Jim")
+                return true;
+            else
+                return false;
         }
     }
 
