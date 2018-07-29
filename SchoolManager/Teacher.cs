@@ -6,7 +6,7 @@ namespace SchoolManager
 {
     class Teacher : Member, IPayee
     {
-                public string Subject;
+        public string Subject { get; set; }
 
         public void Pay()
         {
