@@ -54,7 +54,7 @@ namespace SchoolManager
                 }
             }
 
-            ShowGrade("");
+            ShowGrade("Tom");
 
             foreach (var student in students)
             {
@@ -95,16 +95,9 @@ namespace SchoolManager
 
         static void ShowGrade(string name)
         {
-            var found = students.Find(predicate);
-            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
-        }
+            var found = students.Find(student => student.Name == name);
 
-        static bool predicate(Student student)
-        {
-            if (student.Name == "Jim")
-                return true;
-            else
-                return false;
+            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
         }
     }
 
