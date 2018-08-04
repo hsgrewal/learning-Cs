@@ -19,7 +19,7 @@ namespace SchoolManager
             payees.Add(new Teacher());
             payees.Add(new Principal());
 
-            Logger.Log("Payroll started", 1, "Payroll");
+            Logger.Log("Payroll started", "Payroll");
         }
 
         public void PayAll()
@@ -29,7 +29,7 @@ namespace SchoolManager
                 payee.Pay();
             }
 
-            Logger.Log("PayAll completed", 2, "Payroll");
+            Logger.Log("PayAll completed", "Payroll", 2);
         }
     }
 }
