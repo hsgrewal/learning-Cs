@@ -15,6 +15,8 @@ namespace SchoolManager
 
         static void Main(string[] args)
         {
+            Logger.Log("Tracker started", 1, "Schooltracker");
+
             PayRoll payroll = new PayRoll();
             payroll.PayAll();
 
